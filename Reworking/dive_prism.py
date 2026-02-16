@@ -18,8 +18,8 @@ class dive_prism():
             print("Total volume not positive, initializing as 1m^3")
             vol_t = 1
         if vol_disp < 0:
-            print("Displaced liquid's volume negative, initializing as 1m^3")
-            vol_disp = 1
+            print("Displaced liquid's volume negative, initializing as 0m^3")
+            vol_disp = 0
         
         #if two between t_area, l_o and vol_t is missing, calculate it
         if t_area is not None and l_o is not None:

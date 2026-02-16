@@ -2,12 +2,13 @@ from dive_prism import dive_prism
 from math import *
 import sys
 G = float(9.80665)
-DELTA_T = sys.float_info.epsilon*1e+10 #he smallest difference between two representable floats * 10^10 (reduces precision, but also reduces computing time)
+DELTA_T = sys.float_info.epsilon*1e+10 #the smallest difference between two representable floats * 10^10 (reduces precision, but also reduces computing time)
 D_LQD = 1000 #Liquid's Density
 
 #calculate velocity of a falling object on new_dist, and updates dive_obj dist and vel_v
 def calc_fall_vel(dive_obj: dive_prism, new_dist: float) -> float: ... 
 def calc_entrance_vel(dive_obj: dive_prism, delta_t: float = DELTA_T) -> float: ...
+def dive_depth(dive_obj: dive_prism) -> float: ...
 
 #Air
 def calc_fall_vel(dive_obj: dive_prism, new_dist: float) -> float:
@@ -49,7 +50,11 @@ def dive_depth(dive_obj: dive_prism) -> float:
 mass, l_o, dist, t_area, vol_t, vol_disp, vel_v.
 """
 dive_obj1 = dive_prism(90,1.7,10,0.18,None,0,0)
+print(dive_obj1)
+
 calc_fall_vel(dive_obj1, 0)
 calc_entrance_vel(dive_obj1)
-print(dive_depth(dive_obj1)+dive_obj1.get_l_o())
-print(dive_obj1)
+dive_depth(dive_obj1)
+print(f"{(dive_obj1.get_dist()-dive_obj1.get_l_o()):.3f}m")
+
+#print(dive_obj1)
