@@ -25,7 +25,7 @@ def calc_entrance_vel(dive_obj: dive_prism, delta_t: float = DELTA_T) -> float:
     #print(dive_obj.get_vel_v()) #initial velocity
     while True:
         vel_im1 = dive_obj.get_vel_v()
-        vol_ip1 = vol_i - dive_obj.get_t_area()*vel_im1*delta_t #quantity of volume of liquid displaced
+        vol_ip1 = vol_i - dive_obj.get_t_area()*vel_im1*delta_t #Volume of liquid displaced
         dive_obj.set_dist(dive_obj.get_dist()+vel_im1*delta_t)
         if vol_ip1 <= vol_i or vol_ip1 >= vol_t:
             break
