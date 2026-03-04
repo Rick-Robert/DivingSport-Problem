@@ -5,10 +5,10 @@ G = float(9.80665)
 class DiveAbstract(ABC):
     def __init__(self):
         self._mass: float = 2
-        self._dist: np.ndarray = np.array([0, 0])
+        self._dist: np.ndarray = np.array([0., 0.])
         self._vol_total: float | None = 1
         self._vol_dived: float = 0 #volume of liquid displaced
-        self._velocity: np.ndarray = np.array([0, 0])
+        self._velocity: np.ndarray = np.array([0., 0.])
         self._density: float = 2
     #setters
     def set_all(self, mass:float, dist:np.array, vol_total:float, vol_dived:float, velocity: np.array):...
@@ -56,7 +56,7 @@ class DiveAbstract(ABC):
         self.fix_density()
 
     def set_dist(self, dist: np.array):
-        self._dist = np.copy(dist)
+        self._dist = dist.astype(float)
     def set_dist_x(self, x: float):
         self._dist[0] = x
     def set_dist_y(self, y: float):
@@ -76,7 +76,7 @@ class DiveAbstract(ABC):
         self._vol_dived = vol_dived
 
     def set_velocity(self, velocity:np.array):
-        self._velocity = np.copy(velocity)
+        self._velocity = velocity.astype(float)
     def set_velocity_x(self, x: float):
         self._velocity[0] = x
     def set_velocity_y(self, y: float):
