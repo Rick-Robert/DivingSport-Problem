@@ -40,6 +40,7 @@ def main() -> None:
     sd.velocity = np.array([1.0, 2.0])
 
     logger.info(sd)
+    logger.info(f'Kinetic energy = {sd.kinetic_energy()}')
 
     say_goodbye()
 
